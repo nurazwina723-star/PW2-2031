@@ -1,0 +1,161 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+h1,h2,h3 {
+    text-align:center;
+}
+
+.container {
+  background-color: #d9d9d9;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #ccc;
+  max-width: 900px;
+}
+
+
+label {
+     display:inline-block;
+width: 120px
+}	 
+
+
+</style>
+</head>
+<body>
+
+
+<div class ="container p-5 my-5  text-center">
+
+<h1>BLOOM COLLEGE</h1>
+    <h2>Student Registration Form</h2>
+    <br>
+<form id="studentForm">
+
+
+<br><br>
+<label>Student Image:</label>
+ <input type="file" id="myfile"> 
+ <small style="margin-left:60px;">(less than 5 MB)</small><br><br>
+
+
+<br><br>		  
+<label>Student Name:</label>
+<input type="text" id="myname" placeholder="Full Name" onchange="changeToUpper(this)"><br>
+<br>
+
+
+<label>Father Name:</label>
+<input type ="text" id="namefather" placeholder="Father's Full Name"  onChange="changeToUpper(this)"><br>
+<br>
+
+<label>Mother Name:</label>
+<input type ="text" id="namemother" placeholder="Mother's Full Name" onChange="changeToUpper(this)"><br>
+<br>
+
+<label>Gender:</label>
+<input type="radio" name="gender" value="male"> Male
+       <input type="radio" name="gender" value="female"> Female<br>
+
+<br><br>
+<label>Date of Birth:</label>
+<input type="date" name="dob"><br>
+
+<br><br>
+<label>Email:</label>
+<input type="email" name="email" placeholder="email@xyz.com" onfocus="highlight(this)" onblur="removeHighlight(this)">
+<br>
+
+<br><br>
+<label>Level:</label>
+<select name="phd" id "Choose phd">  style="padding:5px; width:150px;">
+      <option value>phd</option>
+	  <option value>Barchelor</option>
+	  <option value>Master</option>
+</select>	 
+<br><br>
+
+<label>Department:</label>
+<select name="Computer Engineering" id "ChooseEngineering">  style="padding:5px; width:150px;">
+          <option value>Computer Engineering</option>
+          <option value>Diploma in InformatION Technnology</option>
+          <option value>Mechanical</option>
+</select>
+<br><br>
+
+<label>Tel/Mobile:</label>
+<input type="number" name="phone" placeholder="01x-xxxxxxx"><br>
+
+<br><br>
+ <h3>Address</h3>
+
+<br><br>
+<label>State:</label>
+<input type="text" name="state" placeholder="State"><br>
+
+ <br><br>
+<label>City:</label>
+<input type="text" name="city" placeholder="City"><br>
+
+<br><br>
+<label>Postcode:</label>
+<input type="number" name="postcode" placeholder="Postcode"><br>
+
+<br><br>
+<button type="submit" >Register</button>
+<button type="reset">Reset</button>
+
+</form>
+
+
+<div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      
+  <div class="modal-header bg-success text-white">
+  <h5 class="modal-title">Success</h5>
+  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+  </div>
+
+   <div class="modal-body">
+   Your details have been saved!
+   </div>
+      
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+function changeToUpper(element){
+element.value=element.value.toUpperCase();
+} 
+
+function highlight(element) {
+  element.style.background = "lightyellow";
+}
+
+
+function removeHighlight(element) {
+  element.style.background = "white";
+}
+
+
+function showSuccessModal(e){
+  e.preventDefault();
+  new bootstrap.Modal(document.getElementById("successModal")).show();
+}
+
+document.getElementById("studentForm").addEventListener("submit",showSuccessModal);
+
+
+</script>
+</div>
+</body>
+</html>
